@@ -8,7 +8,7 @@ const Card: React.FunctionComponent<CardProps> = ({...props}) => {
   const {text} = props;
 
   return (
-    <div className="Card-box">{text}</div>
+    <div className="Card-card">{text}</div>
   )
 }
 

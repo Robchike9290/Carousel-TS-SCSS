@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useCallback} from 'react';
-import Card from './Card';
+// import Card from './Card';
 import cardData from '../cardData';
 
 interface CardNums {
@@ -42,11 +42,11 @@ const Carousel = () => {
   }, [cardRefs])
 
   return (
-    <div>
+    <div className="Carousel-card-carousel">
       I AM A CAROUSEL COMPONENT
       <ul>
         {cardData.map((card) => (
-          <Card key={card.id} text={card.text}></Card>
+          <li key={card.id} className='Carousel-card'>{card.text}</li>
         ))}
       </ul>
     </div>
