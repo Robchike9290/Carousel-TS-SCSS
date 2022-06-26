@@ -1,10 +1,8 @@
 import React from 'react';
 
-const Card = () => {
+const Card = (props) => {
   return (
-    <div>
-      I AM A CARD COMPONENT
-    </div>
+    <div>{props.text}</div>
   )
 }
 

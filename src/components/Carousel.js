@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useCallback} from 'react';
 import Card from './Card.js';
+import cardData from '../cardData.js';
 
 const Carousel = () => {
   const [cardRefs, setCardRefs] = useState({
@@ -11,9 +12,11 @@ const Carousel = () => {
   return (
     <div>
       I AM A CAROUSEL COMPONENT
-      <Card />
-      <Card />
-      <Card />
+      <ul>
+        {cardData.map((card) => (
+          <Card key={card.id} text={card.text}></Card>
+        ))}
+      </ul>
     </div>
   )
 }
