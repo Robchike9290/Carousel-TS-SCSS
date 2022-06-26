@@ -9,6 +9,16 @@ const Carousel = () => {
     nextCard: 1
   })
 
+  const setCardStates = (cards, cardId) => {
+    if (cards.currentCard === cardId) {
+      return 'currentCard';
+    } else if (cards.previousCard === cardId) {
+      return 'previousCard';
+    } else if (cards.nextCard === cardId) {
+      return 'nextCard';
+    }
+  }
+
   return (
     <div>
       I AM A CAROUSEL COMPONENT
