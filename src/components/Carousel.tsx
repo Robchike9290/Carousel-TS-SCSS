@@ -23,6 +23,7 @@ const Carousel = () => {
     } else if (cardRefs.nextCard === cardId) {
       return 'nextCard';
     }
+    return 'inactive';
   }
 
   const handleCardChanges = useCallback(() => {
@@ -36,17 +37,24 @@ const Carousel = () => {
       setCardRefs((currentRefs) => ({
         previousCard: currentRefs.currentCard,
         currentCard: currentRefs.currentCard + 1,
-        nextCard: currentRefs.currentCard + 2 <= cardData.length - 1 ? currentRefs.currentCard + 2 : 0
+        nextCard: currentRefs.currentCard + 2 === cardData.length ? 0 : currentRefs.currentCard + 2
       }))
     }
-  }, [cardRefs])
+  }, [cardRefs.currentCard])
+
+  useEffect(() => {
+    const randomStateChangeInterval = 4000 + (2000 * Math.random());
+    const transition = setInterval(() => {
+      handleCardChanges();
+    }, randomStateChangeInterval);
+  }, [handleCardChanges, cardRefs])
 
   return (
     <div className="Carousel-card-carousel">
       I AM A CAROUSEL COMPONENT
       <ul>
         {cardData.map((card) => (
-          <li key={card.id} className='Carousel-card'>{card.text}</li>
+          <li key={card.id} className={`Carousel-card ${handleCardStyles(cardRefs, card.id)}`}>{card.text}</li>
         ))}
       </ul>
     </div>
