@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useCallback} from 'react';
-// import Card from './Card.tsx';
-// import cardData from '../cardData.tsx';
+import Card from './Card';
+import cardData from '../cardData';
 
 const Carousel = () => {
   // const [cardRefs, setCardRefs] = useState({
@@ -22,11 +22,11 @@ const Carousel = () => {
   return (
     <div>
       I AM A CAROUSEL COMPONENT
-      {/* <ul>
+      <ul>
         {cardData.map((card) => (
           <Card key={card.id} text={card.text}></Card>
         ))}
-      </ul> */}
+      </ul>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
-//import Carousel from './components/Carousel.tsx';
+import Carousel from './components/Carousel';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
-      {/* <Carousel /> */}
+      <Carousel />
     </div>
   );
 }

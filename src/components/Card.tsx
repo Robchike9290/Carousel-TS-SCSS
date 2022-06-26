@@ -1,14 +1,14 @@
 import React from 'react';
 
-// const Card = (props) => {
-//   return (
-//     <div className="Card-box">{props.text}</div>
-//   )
-// }
+type CardProps = {
+  text: string
+}
 
-const Card = () => {
+const Card: React.FunctionComponent<CardProps> = ({...props}) => {
+  const {text} = props;
+
   return (
-    <div className="Card-box">I AM A CARD COMPONENT</div>
+    <div className="Card-box">{text}</div>
   )
 }
 
