@@ -15,7 +15,7 @@ const Carousel = () => {
     nextCard: 1
   })
 
-  const setCardStyles = (cardRefs: CardNums, cardId: number) => {
+  const handleCardStyles = (cardRefs: CardNums, cardId: number) => {
     if (cardRefs.currentCard === cardId) {
       return 'currentCard';
     } else if (cardRefs.previousCard === cardId) {
@@ -24,6 +24,22 @@ const Carousel = () => {
       return 'nextCard';
     }
   }
+
+  const handleCardChanges = useCallback(() => {
+    if (cardRefs.currentCard >= cardData.length) {
+      setCardRefs({
+        previousCard: cardData.length - 1,
+        currentCard: 0,
+        nextCard: 1
+      })
+    } else {
+      setCardRefs((currentRefs) => ({
+        previousCard: currentRefs.currentCard,
+        currentCard: currentRefs.currentCard + 1,
+        nextCard: currentRefs.currentCard + 2 <= cardData.length - 1 ? currentRefs.currentCard + 2 : 0
+      }))
+    }
+  }, [cardRefs])
 
   return (
     <div>
