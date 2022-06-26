@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.scss';
+import Card from './components/Card.js';
+import Carousel from './components/Carousel.js';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           Learn React
         </a>
       </header>
+      <Carousel />
+      <Card />
     </div>
   );
 }
