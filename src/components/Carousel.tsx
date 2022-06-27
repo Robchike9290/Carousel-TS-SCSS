@@ -10,9 +10,9 @@ interface CardNums {
 
 const Carousel = () => {
   const [cardRefs, setCardRefs] = useState<CardNums>({
-    previousCard: 1, // 1, 2, 3, 4, 1
-    currentCard: 1,  // 2, 3, 4, 1, 2
-    nextCard: 2      // 3, 4, 1, 2, 3
+    previousCard: 1,
+    currentCard: 1,
+    nextCard: 2
   })
 
   const handleCardStyles = (cardRefs: CardNums, cardId: number) => {
@@ -53,7 +53,6 @@ const Carousel = () => {
 
   return (
     <div className="Carousel-card-carousel">
-      I AM A CAROUSEL COMPONENT
       <ul>
         {cardData.map((card) => (
           <li key={card.id} className={`Carousel-card ${handleCardStyles(cardRefs, card.id)}`}>{card.text}</li>
