@@ -10,9 +10,9 @@ interface CardNums {
 
 const Carousel = () => {
   const [cardRefs, setCardRefs] = useState<CardNums>({
-    previousCard: 0,
-    currentCard: 0,
-    nextCard: 1
+    previousCard: 1, // 1, 2, 3, 4, 1
+    currentCard: 1,  // 2, 3, 4, 1, 2
+    nextCard: 2      // 3, 4, 1, 2, 3
   })
 
   const handleCardStyles = (cardRefs: CardNums, cardId: number) => {
@@ -29,15 +29,15 @@ const Carousel = () => {
   const handleCardChanges = useCallback(() => {
     if (cardRefs.currentCard >= cardData.length) {
       setCardRefs({
-        previousCard: cardData.length - 1,
-        currentCard: 0,
-        nextCard: 1
+        previousCard: cardData.length,
+        currentCard: 1,
+        nextCard: 2
       })
     } else {
       setCardRefs((currentRefs) => ({
         previousCard: currentRefs.currentCard,
         currentCard: currentRefs.currentCard + 1,
-        nextCard: currentRefs.currentCard + 2 === cardData.length ? 0 : currentRefs.currentCard + 2
+        nextCard: currentRefs.currentCard + 2 === cardData.length + 1 ? 1 : currentRefs.currentCard + 2
       }))
     }
   }, [cardRefs.currentCard])
@@ -47,6 +47,8 @@ const Carousel = () => {
     const transition = setInterval(() => {
       handleCardChanges();
     }, randomStateChangeInterval);
+
+    return () => clearInterval(transition);
   }, [handleCardChanges, cardRefs])
 
   return (
