@@ -24,7 +24,7 @@ const Carousel = () => {
     } else if (cardRefs.nextCard === cardId) {
       return 'nextCard';
     }
-    return 'inactive';
+    return '';
   }
 
   const handleCardChanges: () => void = useCallback(() => {

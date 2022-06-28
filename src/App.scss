@@ -1,46 +1,46 @@
 .App {
   text-align: center;
-}
 
-.Carousel-card-carousel {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  background-color: #FFF;
-}
+  .Carousel-card-carousel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #FFF;
 
-.Carousel-card {
-  background: #FFF;
-  border-radius: 8px;
-  border: 1px solid #FFF;
-  box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);
-  width: 630px;
-  height: 300px;
-  line-height: 300px;
-  transition: all 1s ease;
-  opacity: 0;
-  position: absolute;
-  transform: scale(0.85) translateY(50px);
-  top: calc(50% - 150px);
-  left: calc(50% - 315px);
-  list-style: none;
-}
+    .Carousel-card {
+      background: #FFF;
+      border-radius: 8px;
+      border: 1px solid #FFF;
+      box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);
+      width: 630px;
+      height: 300px;
+      line-height: 300px;
+      transition: all 1s ease;
+      opacity: 0;
+      position: absolute;
+      transform: scale(0.85) translateY(50px);
+      top: calc(50% - 150px);
+      left: calc(50% - 315px);
+      list-style: none;
 
-.Carousel-card.currentCard {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-  box-shadow: 0 30px 20px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
+      &.currentCard {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        box-shadow: 0 30px 20px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
 
-.Carousel-card.nextCard {
-  opacity: 1;
-  z-index: 0;
-}
+      &.nextCard {
+        opacity: 1;
+        z-index: 0;
+      }
 
-.Carousel-card.previousCard {
-  transform: scale(1.1) translateX(-50px);
-  z-index: 2;
-  opacity: 0;
+      &.previousCard {
+        transform: scale(1.1) translateX(-50px);
+        z-index: 2;
+        opacity: 0;
+      }
+    }
+  }
 }
