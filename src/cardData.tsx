@@ -1,4 +1,9 @@
-let cardData = [
+export interface CardDataTypes {
+  id: number,
+  text: string
+};
+
+export const cardData = [
   {
     id: 1,
     text: 'Card One'
@@ -13,5 +18,3 @@ let cardData = [
     text: 'Card Four'
   }
 ]
-
-export default cardData;

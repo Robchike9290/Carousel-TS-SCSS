@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useCallback} from 'react';
 // import Card from './Card';
-import cardData from '../cardData';
+import { cardData } from '../cardData';
+import { CardDataTypes } from '../cardData';
 
 interface CardNums {
   previousCard: number;
@@ -15,7 +16,7 @@ const Carousel = () => {
     nextCard: 2
   })
 
-  const handleCardStyles = (cardRefs: CardNums, cardId: number) => {
+  const handleCardStyles = (cardRefs: CardNums, cardId: number): string => {
     if (cardRefs.currentCard === cardId) {
       return 'currentCard';
     } else if (cardRefs.previousCard === cardId) {
@@ -26,7 +27,7 @@ const Carousel = () => {
     return 'inactive';
   }
 
-  const handleCardChanges = useCallback(() => {
+  const handleCardChanges: () => void = useCallback(() => {
     if (cardRefs.currentCard >= cardData.length) {
       setCardRefs({
         previousCard: cardData.length,
@@ -43,8 +44,8 @@ const Carousel = () => {
   }, [cardRefs.currentCard])
 
   useEffect(() => {
-    const randomStateChangeInterval = 4000 + (2000 * Math.random());
-    const transition = setInterval(() => {
+    const randomStateChangeInterval: number = 4000 + (2000 * Math.random());
+    const transition: NodeJS.Timer = setInterval(() => {
       handleCardChanges();
     }, randomStateChangeInterval);
 
@@ -54,7 +55,7 @@ const Carousel = () => {
   return (
     <div className="Carousel-card-carousel">
       <ul>
-        {cardData.map((card) => (
+        {cardData.map((card: CardDataTypes) => (
           <li key={card.id} className={`Carousel-card ${handleCardStyles(cardRefs, card.id)}`}>{card.text}</li>
         ))}
       </ul>
