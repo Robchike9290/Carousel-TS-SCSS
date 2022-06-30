@@ -1,5 +1,4 @@
 import React, {useEffect, useState, useCallback} from 'react';
-// import Card from './Card';
 import { cardData } from '../cardData';
 import { CardDataTypes } from '../cardData';
 
@@ -57,7 +56,7 @@ const Carousel: React.ElementType = () => {
       <ul>
         {cardData.map((card: CardDataTypes) => (
           <li key={card.id} data-testid='card' className={`Carousel-card ${handleCardStyles(cardRefs, card.id)}`}>
-            <span data-testid='text'>{card.text}</span>
+            <span>{card.text}</span>
           </li>
         ))}
       </ul>
